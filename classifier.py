@@ -113,6 +113,6 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Error reading file: {e}")
 
-st.image('新式統號的證件_境外人士.png', caption='新式統號的證件', use_container_width=True)
-st.image('舊式統號的證件_境外人士.png', caption='舊式統號的證件', use_container_width=True)
+st.image('新式統號的證件_境外人士.png', caption='新式統號的證件. 資料來源: 移民署官網', use_container_width=True)
+st.image('舊式統號的證件_境外人士.png', caption='舊式統號的證件. 資料來源: 自己整理', use_container_width=True)
 
