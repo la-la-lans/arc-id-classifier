@@ -82,32 +82,33 @@ if uploaded_file:
             st.error("Unsupported file format. Please upload an .xls or .xlsx file.")
             return
 
-    if '身分證字號' not in df.columns:
-        st.error("Error: The uploaded file must contain a column named '身分證字號'.")
-    else:
-        df['身分證字號'] = df['身分證字號'].astype(str)
+        if '身分證字號' not in df.columns:
+            st.error("Error: The uploaded file must contain a column named '身分證字號'.")
+        else:
+            df['身分證字號'] = df['身分證字號'].astype(str)
 
-        new_df_old = df[df['身分證字號'].apply(string_search_old)]
-        new_df_new = df[df['身分證字號'].apply(string_search_new)]
+            new_df_old = df[df['身分證字號'].apply(string_search_old)]
+            new_df_new = df[df['身分證字號'].apply(string_search_new)]
 
-        new_df_old['國際'] = new_df_old['身分證字號'].apply(area_search_old)
-        new_df_new['國際'] = new_df_new['身分證字號'].apply(area_search_new)
-        
-        new_df = pd.concat([new_df_old, new_df_new])
+            new_df_old['國際'] = new_df_old['身分證字號'].apply(area_search_old)
+            new_df_new['國際'] = new_df_new['身分證字號'].apply(area_search_new)
 
-        st.write('### Filtered Results')
-        st.dataframe(new_df)
+            new_df = pd.concat([new_df_old, new_df_new])
 
-                
-        excel_file = io.BytesIO()
-        with pd.ExcelWriter(excel_file, engine='openpyxl') as writer:
-            new_df.to_excel(writer, index=False, sheet_name='Filtered Data')
-        excel_file.seek(0)
+            st.write('### Filtered Results')
+            st.dataframe(new_df)
 
-       
-        st.download_button(
-            label='Download Filtered Data',
-            data=excel_file,
-            file_name='filtered_data.xlsx',
-            mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        )
+            excel_file = io.BytesIO()
+            with pd.ExcelWriter(excel_file, engine='openpyxl') as writer:
+                new_df.to_excel(writer, index=False, sheet_name='Filtered Data')
+            excel_file.seek(0)
+
+            st.download_button(
+                label='Download Filtered Data',
+                data=excel_file,
+                file_name='filtered_data.xlsx',
+                mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            )
+    
+    except Exception as e:
+        st.error(f"Error reading file: {e}")
