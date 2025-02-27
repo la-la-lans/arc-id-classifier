@@ -42,7 +42,6 @@ def area_search_new(arc):
 st.title('Taiwan ARC & National ID Classifier')
 st.write("""
     **The Alien Resident Certificate (ARC)** serves as a temporary ID card for foreign residents in Taiwan. 
-    The ARC number consists of two formats depending on the issuance date:
 
     - **Old Format**: Issued before January 1st, 2022 (two letters + eight digits, e.g., `AB12345678`).
     - **New Format**: Issued after January 2nd, 2022 (one letter + nine digits, e.g., `A123456789`).
@@ -52,7 +51,7 @@ st.write("""
 
     **Current Version:**
     - Differentiate between Taiwanese national IDs and Alien Resident Certificates (ARC) by analyzing 
-    the structure of the ARC/ID numbers (old and new format).
+    the structure of the ARC/ID numbers (both old and new format).
     - Classifies the holder’s status (foreign national, Mainland Chinese, Hong Kong/Macau resident).
     - Provides a downloadable version of the results.
 
