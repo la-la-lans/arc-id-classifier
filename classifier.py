@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import io
 
+st.set_page_config(page_title='Taiwan Alien Resident Certificate Lookup')
+
 valid_region_codes = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 valid_gender_codes_old = ['A', 'B', 'C', 'D']
 valid_gender_codes_new = ['8', '9']
