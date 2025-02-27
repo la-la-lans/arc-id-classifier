@@ -50,7 +50,7 @@ st.write("""
 
     **Current Version:**
     - Differentiate between Taiwanese national IDs and Alien Resident Certificates (ARC) by analyzing 
-    the structure of the ID numbers (old and new format).
+    the structure of the ARC/ID numbers (old and new format).
     - Classifies the holder’s status (foreign national, Mainland Chinese, Hong Kong/Macau resident).
     - Provides a downloadable version of the results.
 
@@ -111,3 +111,6 @@ if uploaded_file:
     
     except Exception as e:
         st.error(f"Error reading file: {e}")
+
+st.image('C:\\Users\\USER\\Downloads\\新式統號的證件_境外人士.png', caption='新式統號的證件_境外人士', use_column_width=True)
+st.image('C:\\Users\\USER\\Downloads\\舊式統號的證件_境外人士.png', caption='舊式統號的證件_境外人士', use_column_width=True)
