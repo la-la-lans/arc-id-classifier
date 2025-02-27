@@ -112,5 +112,6 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Error reading file: {e}")
 
-st.image('C:\\Users\\USER\\Downloads\\新式統號的證件_境外人士.png', caption='新式統號的證件_境外人士', use_container_width=True)
-st.image('C:\\Users\\USER\\Downloads\\舊式統號的證件_境外人士.png', caption='舊式統號的證件_境外人士', use_container_width=True)
+st.image('新式統號的證件_境外人士.png', caption='新式統號的證件', use_container_width=True)
+st.image('舊式統號的證件_境外人士.png', caption='舊式統號的證件', use_container_width=True)
+
