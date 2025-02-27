@@ -79,8 +79,7 @@ if uploaded_file:
         elif uploaded_file.name.endswith('.xls'):
             df = pd.read_excel(uploaded_file, engine='xlrd')  
         else:
-            st.error("Unsupported file format. Please upload an .xls or .xlsx file.")
-            return
+            st.error('Unsupported file format. Please upload an .xls or .xlsx file.')
 
         if '身分證字號' not in df.columns:
             st.error("Error: The uploaded file must contain a column named '身分證字號'.")
