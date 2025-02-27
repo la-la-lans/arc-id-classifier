@@ -74,11 +74,13 @@ if arc_input:
 
 if uploaded_file:
     try:
-        df = pd.read_excel(uploaded_file, engine='openpyxl' if uploaded_file.name.endswith('.xlsx') else None)
-        st.write('File uploaded successfully!')
-        st.dataframe(df)  
-    except Exception as e:
-        st.error(f'Error reading file: {e}')
+        if uploaded_file.name.endswith('.xlsx'):
+            df = pd.read_excel(uploaded_file, engine='openpyxl')  
+        elif uploaded_file.name.endswith('.xls'):
+            df = pd.read_excel(uploaded_file, engine='xlrd')  
+        else:
+            st.error("Unsupported file format. Please upload an .xls or .xlsx file.")
+            return
 
     if '身分證字號' not in df.columns:
         st.error("Error: The uploaded file must contain a column named '身分證字號'.")
