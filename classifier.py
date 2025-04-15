@@ -71,7 +71,7 @@ if arc_input:
         result = area_search_new(arc_input)
         st.write(f'The ARC/ID number {arc_input} is classified as: {result}')
     else:
-        st.write('Invalid ARC/ID number format.')
+        st.write('The provided identification number is more likely to be a Taiwanese National ID number, not an Alien Resident Certificate (ARC).')
 
 if uploaded_file:
     try:
