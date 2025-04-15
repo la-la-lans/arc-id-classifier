@@ -11,4 +11,6 @@ Current Version:
 - Differentiate between Taiwanese national IDs and Alien Resident Certificates (ARC) by analyzing the structure of the ARC/ID numbers (both old and new format).
 - Classifies the holder’s status (foreign national, Mainland Chinese, Hong Kong/Macau resident).
 - Provides a downloadable version of the results.
+
+Deployed on Streamlit: https://arc-id-classifier.streamlit.app/
 .
